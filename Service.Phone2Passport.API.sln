@@ -1,0 +1,37 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.1.32328.378
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Service.Phone2Passport.API", "..\Service.Phone2Passport\Service.Phone2Passport.API\Service.Phone2Passport.API.csproj", "{4AE7915D-AB1A-4600-BE90-972E39B6C6CE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Service.Phone2Passport.Business", "..\Service.Phone2Passport\Service.Phone2Passport.Business\Service.Phone2Passport.Business.csproj", "{8774B49E-4143-4B7E-A227-67BE9B501EDA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Service.Phone2Passport.DataAccess", "..\Service.Phone2Passport\Service.Phone2Passport.DataAccess\Service.Phone2Passport.DataAccess.csproj", "{BA35C442-14AC-4D34-8D46-1EB5F78A1E7B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4AE7915D-AB1A-4600-BE90-972E39B6C6CE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4AE7915D-AB1A-4600-BE90-972E39B6C6CE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4AE7915D-AB1A-4600-BE90-972E39B6C6CE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4AE7915D-AB1A-4600-BE90-972E39B6C6CE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8774B49E-4143-4B7E-A227-67BE9B501EDA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8774B49E-4143-4B7E-A227-67BE9B501EDA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8774B49E-4143-4B7E-A227-67BE9B501EDA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8774B49E-4143-4B7E-A227-67BE9B501EDA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BA35C442-14AC-4D34-8D46-1EB5F78A1E7B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BA35C442-14AC-4D34-8D46-1EB5F78A1E7B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BA35C442-14AC-4D34-8D46-1EB5F78A1E7B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BA35C442-14AC-4D34-8D46-1EB5F78A1E7B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {C8C1DE8C-105A-4A52-9CD5-DA54FF86F8B7}
+	EndGlobalSection
+EndGlobal
