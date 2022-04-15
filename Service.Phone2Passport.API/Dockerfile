@@ -7,7 +7,7 @@ EXPOSE 443
 
 FROM mcr.microsoft.com/dotnet/sdk:6.0 AS build
 WORKDIR /src
-COPY ["Service.Phone2Passport.API/Service.Phone2Passport.API.csproj", "Service.Phone2Passport.API/"]
+COPY ["Service.Phone2Passport.API.csproj", "Service.Phone2Passport.API/"]
 COPY ["Service.Phone2Passport.Business/Service.Phone2Passport.Business.csproj", "Service.Phone2Passport.Business/"]
 COPY ["Service.Phone2Passport.DataAccess/Service.Phone2Passport.DataAccess.csproj", "Service.Phone2Passport.DataAccess/"]
 RUN dotnet restore "Service.Phone2Passport.API/Service.Phone2Passport.API.csproj"
