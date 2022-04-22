@@ -7,7 +7,6 @@ namespace Service.Phone2Passport.API.Controllers
     [Route("[controller]")]
     public class GetPassportController : ControllerBase
     {
-
         private readonly ILogger<GetPassportController> _logger;
 
         public GetPassportController(ILogger<GetPassportController> logger)
@@ -15,12 +14,20 @@ namespace Service.Phone2Passport.API.Controllers
             _logger = logger;
         }
 
+        // Метод с именем для вызова из под строки запроса
         [HttpGet(Name = "GetPassport")]
-        public string  Get(string number)
+        public async Task<JsonResult> GetAsync(string number)
         {
-            IBusinessProcessor processor = new BusinessProcessor(); 
-            processor.Start(number);  
-            return "";
+            IBusinessProcessor processor = new BusinessProcessor();
+
+            return new JsonResult(await processor.Start(number));
+        }
+
+        [HttpGet(Name = "GetPassport")]
+        public async Task<JsonResult> Get(string FirstName, string LastName, string SurName)
+        {
+            IBusinessProcessor processor = new BusinessProcessor();
+            return new JsonResult(await processor.Start(FirstName, LastName, SurName));
         }
     }
 }

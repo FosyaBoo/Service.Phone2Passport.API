@@ -13,7 +13,7 @@ namespace Service.Phone2Passport.DataAccess.Data.Entity.SQL
 
     public class DataContext : DbContext
     {
-        protected readonly IConfiguration Configuration;
+        protected readonly IConfiguration ?Configuration;
 
 
         protected override void OnConfiguring(DbContextOptionsBuilder options)
@@ -22,6 +22,6 @@ namespace Service.Phone2Passport.DataAccess.Data.Entity.SQL
             options.UseSqlServer("Data Source=10.55.31.65; Initial Catalog=Clients; User Id=uGate; Password=*New_123#");
         }
 
-        public DbSet<Client> GetCli4Phone { get; set; }
+        public DbSet<Passport> ?GetCli4Phone { get; set; }
     }
 }
