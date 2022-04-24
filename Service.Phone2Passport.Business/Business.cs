@@ -10,50 +10,38 @@ namespace Service.Phone2Passport.Business
     public interface IBusinessProcessor
     {
         /// <summary>
-        /// Запуск процесса нормирования входящего нмоера телефона и поулчение данных из баз данных
-        /// </summary>
-        /// <param name="PhoneNumber">Номер телефона в любом ввиде</param>
-        Task<string> Start(string PhoneNumber);
-
-        /// <summary>
         /// Поиск по ФИО клиента и дальнейшее поулчение данных из баз данных
         /// </summary>
         /// <param name="FirstName">Фамилия</param>
         /// <param name="LastName">Имя</param>
         /// <param name="SurName">Отчество</param>
-        Task<string> Start(string FirstName, string LastName,string SurName);
+        Task<string> Start(string PhoneNumber, string FirstName, string LastName,string SurName);
     }
     public class BusinessProcessor : IBusinessProcessor
     {
         Client client = new();
 
-        public async Task<string> Start(string PhoneNumber)
+        public async Task<string> Start(string PhoneNumber,string FirstName, string LastName, string SurName)
         {
             client.SearchNumber = PhoneNumber;
-            DataAccessProcessor DAP = new();
-            client = await DAP.StartAsync(client);
-            return OutClientJson(client);
-
-        }
-        public async Task<string> Start(string FirstName, string LastName, string SurName)
-        {
             client.SearchSurName = SurName;
             client.SearchFirstName = FirstName;
             client.SearchLastName = LastName;
 
             DataAccessProcessor DAP = new();
-            client = await DAP.StartAsync(client);
-            return OutClientJson(client);
+            Client Cli = await DAP.StartAsync(client);
+            return OutClientJson(Cli);
         }
 
-        static string OutClientJson(Client client)
+        static string OutClientJson(Client objectClass)
         {
+            
             JsonSerializerOptions options = new JsonSerializerOptions
             {
                 Encoder = JavaScriptEncoder.Create(UnicodeRanges.BasicLatin, UnicodeRanges.Cyrillic),
                 WriteIndented = true
             };
-            return JsonSerializer.Serialize(client, options); 
+            return JsonSerializer.Serialize(objectClass, options); 
         }
     }
 }

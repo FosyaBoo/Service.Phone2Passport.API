@@ -19,17 +19,31 @@ namespace Service.Phone2Passport.DataAccess
                 else
                     client.passport = DC.GetCli4Phone.Where(x => x.Name == client.SearchFirstName && x.LastName == client.SearchLastName && x.SurName == client.SearchSurName).ToArray();
 
-                if (client.passport == null)
+                if (client.passport == null || client.passport.Length == 0)
+                {
+                    client.passport = new Passport[1];
+                    client.passport[0] = new Passport();
                     throw new Exception("Ошибка клиент не был найден");
+                }
             }
 
             return client;
         }
         public async Task<Client> StartAsync(Client client)
         {
-            //Здесь иницилиазируем подключение к Сиквелу для получения данных
-            return await Task.Run(()=>Start(client));
-            
+            //return await Task.Run(() => Start(client));
+            try
+            {
+                //Здесь иницилиазируем подключение к Сиквелу для получения данных
+                return await Task.Run(() => Start(client));
+
+            }
+            catch (Exception ex)
+            {
+                client.ErrorDescription = ex.Message;
+                return client;
+            }
+
         }
     }
 }

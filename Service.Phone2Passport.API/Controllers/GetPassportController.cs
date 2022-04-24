@@ -15,19 +15,12 @@ namespace Service.Phone2Passport.API.Controllers
         }
 
         // Метод с именем для вызова из под строки запроса
-        [HttpGet(Name = "GetPassport")]
-        public async Task<JsonResult> GetAsync(string number)
-        {
-            IBusinessProcessor processor = new BusinessProcessor();
-
-            return new JsonResult(await processor.Start(number));
-        }
 
         [HttpGet(Name = "GetPassport")]
-        public async Task<JsonResult> Get(string FirstName, string LastName, string SurName)
+        public async Task<JsonResult> GetAsync(string? number,string? FirstName, string? LastName, string? SurName)
         {
             IBusinessProcessor processor = new BusinessProcessor();
-            return new JsonResult(await processor.Start(FirstName, LastName, SurName));
+            return new JsonResult(await processor.Start(number,FirstName, LastName, SurName));
         }
     }
 }
